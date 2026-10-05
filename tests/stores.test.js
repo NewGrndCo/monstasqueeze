@@ -101,5 +101,5 @@ test('shortage report accepts camera or uploaded photos without contact fields',
 
 test('retailer section links directly to the restock portal', () => {
   const html = readFileSync(resolve('index.html'), 'utf8');
-  assert.match(html, /href="https:\/\/restock\.monstasqueeze\.com"[^>]*>Restock Monsta Squeeze/);
+  assert.match(html, /href="https:\/\/restock\.monstasqueeze\.com"[^>]*aria-label="Restock Monsta Squeeze"[^>]*>Restock/);
 });
