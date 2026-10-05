@@ -110,6 +110,48 @@ const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0'
 const dateField = document.querySelector('[data-report-date]');
 if (dateField) { dateField.max = today; dateField.value = today; }
 
+const photoInputs = [...document.querySelectorAll('[data-photo-input]')];
+const photoPreview = document.querySelector('[data-photo-preview]');
+const photoPreviewImage = photoPreview?.querySelector('img');
+const photoName = document.querySelector('[data-photo-name]');
+const photoStatus = document.querySelector('[data-photo-status]');
+let photoObjectUrl = null;
+
+function clearPhoto() {
+  photoInputs.forEach(input => { input.value = ''; });
+  if (photoObjectUrl) URL.revokeObjectURL(photoObjectUrl);
+  photoObjectUrl = null;
+  if (photoPreviewImage) photoPreviewImage.removeAttribute('src');
+  if (photoPreview) photoPreview.hidden = true;
+  if (photoName) photoName.textContent = '';
+}
+
+photoInputs.forEach(input => input.addEventListener('change', () => {
+  const file = input.files?.[0];
+  if (!file) return;
+  if (!file.type.startsWith('image/')) {
+    clearPhoto();
+    photoStatus.textContent = 'Choose an image file such as a photo from your camera or gallery.';
+    return;
+  }
+  if (file.size > 8 * 1024 * 1024) {
+    clearPhoto();
+    photoStatus.textContent = 'That photo is over 8 MB. Choose a smaller image and try again.';
+    return;
+  }
+  photoInputs.filter(other => other !== input).forEach(other => { other.value = ''; });
+  if (photoObjectUrl) URL.revokeObjectURL(photoObjectUrl);
+  photoObjectUrl = URL.createObjectURL(file);
+  photoPreviewImage.src = photoObjectUrl;
+  photoName.textContent = file.name;
+  photoPreview.hidden = false;
+  photoStatus.textContent = 'Photo ready to send with your shortage report.';
+}));
+document.querySelector('[data-remove-photo]')?.addEventListener('click', () => {
+  clearPhoto();
+  photoStatus.textContent = 'Photo removed.';
+});
+
 const menuButton = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.site-nav');
 menuButton?.addEventListener('click', () => {

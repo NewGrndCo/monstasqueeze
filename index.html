@@ -7,7 +7,7 @@
   <meta name="description" content="Explore every Monsta Squeeze flavor, find one of 13 local retailers, or report a shortage for #FreeSqueeze.">
   <meta property="og:title" content="Monsta Squeeze — Squeeze the Monsta">
   <meta property="og:description" content="Bold flavor. Fresh squeezed. Monsta approved. Find Monsta Squeeze near you.">
-  <meta property="og:image" content="/assets/retailer-bottles.png">
+  <meta property="og:image" content="/assets/hero-atmosphere-v2.webp">
   <title>Monsta Squeeze | Find Your Flavor</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +29,13 @@
 
   <main id="main">
     <section class="hero" id="top">
-      <img class="hero-product" src="/assets/retailer-bottles.png" alt="Strawberry, Lemonade, and Half & Half Monsta Squeeze bottles with fruit and golden splashes">
+      <img class="hero-atmosphere" src="/assets/hero-atmosphere-v2.webp" alt="" aria-hidden="true">
+      <div class="hero-products" role="img" aria-label="Strawberry Lemonade, Classic Lemonade, and Half & Half Monsta Squeeze bottles">
+        <img class="hero-bottle strawberry-bottle" src="/assets/strawberry-lemonade-cutout.webp" alt="">
+        <img class="hero-bottle classic-bottle" src="/assets/classic-lemonade-cutout.webp" alt="">
+        <img class="hero-bottle half-bottle" src="/assets/half-half-cutout.webp" alt="">
+      </div>
+      <img class="hero-foreground" src="/assets/hero-fruit-splash-v2.webp" alt="" aria-hidden="true">
       <div class="hero-copy reveal"><h1><span>SQUEEZE THE</span><strong>MONSTA</strong></h1><p>Bold flavor. <b>Fresh squeezed.</b><br>Monsta approved.</p><a class="pill-button" href="#find"><span class="pin-icon">●</span> Find a store <b aria-hidden="true">→</b></a></div>
       <div class="retail-badge" aria-label="13 retail locations"><strong>13</strong><span>Retail<br>locations</span></div>
     </section>
@@ -103,12 +109,13 @@
 
   <dialog class="report-dialog" data-report-dialog aria-labelledby="report-title">
     <button class="dialog-close" type="button" data-close-report aria-label="Close report form">×</button><div class="dialog-head"><p class="brush-note">#FreeSqueeze</p><h2 id="report-title">Report a<br><em>shortage.</em></h2><p>Tell us where the Monsta went missing. Required fields are marked with an asterisk.</p></div>
-    <form name="shortage-report" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field" class="report-form">
+    <form name="shortage-report" method="POST" action="/thanks" enctype="multipart/form-data" data-netlify="true" netlify-honeypot="bot-field" class="report-form">
       <input type="hidden" name="form-name" value="shortage-report"><p class="sr-only"><label>Don’t fill this out: <input name="bot-field"></label></p>
-      <label><span>Your name *</span><input name="name" required autocomplete="name"></label><label><span>Email *</span><input type="email" name="email" required autocomplete="email"></label><label><span>Phone</span><input type="tel" name="phone" autocomplete="tel"></label><label><span>Retailer *</span><select name="retailer" required data-retailer-select><option value="">Choose the store</option></select></label>
+      <label><span>Your name *</span><input name="name" required autocomplete="name"></label><label><span>Retailer *</span><select name="retailer" required data-retailer-select><option value="">Choose the store</option></select></label>
       <label><span>Missing product *</span><select name="flavor" required><option value="">Choose the product</option><option>Strawberry Lemonade</option><option>Classic Lemonade</option><option>Half &amp; Half</option><option>Alkaline Water</option><option>Blueberry Lemonade</option><option>Mango Lemonade</option><option>Raspberry Lemonade</option><option>Pineapple Lemonade</option><option>Multiple products</option></select></label><label><span>Date spotted *</span><input type="date" name="date" required data-report-date></label>
-      <label class="wide"><span>What did you see?</span><textarea name="details" rows="4" placeholder="Example: The cooler was empty, or the flavor I wanted wasn't available."></textarea></label><label class="check wide"><input type="checkbox" name="contact-consent" value="yes" required><span>I agree that Monsta Squeeze may contact me about this shortage report and #FreeSqueeze claim. *</span></label>
-      <button class="pill-button wide" type="submit">Send shortage report <span aria-hidden="true">→</span></button><p class="form-note wide">Submitting starts a review. Fulfillment is not confirmed until the Monsta Squeeze team follows up.</p>
+      <fieldset class="photo-field wide"><legend>Add a shelf photo <span>Optional</span></legend><p>Show us the empty cooler or missing flavor. Choose one option; images must be under 8 MB.</p><div class="photo-actions"><label class="photo-button"><span aria-hidden="true">●</span> Take a photo<input type="file" name="shelf-photo-camera" accept="image/*" capture="environment" data-photo-input></label><label class="photo-button secondary"><span aria-hidden="true">↑</span> Upload a photo<input type="file" name="shelf-photo-upload" accept="image/*" data-photo-input></label></div><div class="photo-preview" data-photo-preview hidden><img alt="Selected shortage photo preview"><div><strong data-photo-name></strong><button type="button" data-remove-photo>Remove photo</button></div></div><p class="photo-status" data-photo-status role="status"></p></fieldset>
+      <label class="wide"><span>What did you see?</span><textarea name="details" rows="4" placeholder="Example: The cooler was empty, or the flavor I wanted wasn't available."></textarea></label>
+      <button class="pill-button wide" type="submit">Send shortage report <span aria-hidden="true">→</span></button><p class="form-note wide">Your report helps the Monsta Squeeze team verify shortages and prioritize restocks. #FreeSqueeze eligibility is reviewed separately.</p>
     </form>
   </dialog>
 </body>
