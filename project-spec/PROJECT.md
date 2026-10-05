@@ -40,6 +40,7 @@ Create the official Monsta Squeeze brand site as a retail-discovery experience. 
 - D-006: Add a prominent Squeeze Rush promotion between flavor discovery and retail discovery, using official game key art and linking to `https://play.monstasqueeze.com`. Source: current user request and game repository metadata. Status: approved.
 - D-007: Rebuild the hero as a three-depth-layer composition using generated atmosphere, the identity-locked Strawberry Lemonade / Classic Lemonade / Half & Half bottle cutouts, and a generated fruit-and-juice foreground. Blueberry is excluded from the hero. Source: current user request. Status: approved.
 - D-008: Shortage reports collect no email or phone number. Name remains required, and reporters can either capture a rear-camera photo or upload an existing image. Source: current user request. Status: approved.
+- D-009: Place a direct “Restock Monsta Squeeze” portal action beside “Become a retailer,” linking to `https://restock.monstasqueeze.com`. Source: current user request. Status: approved.
 
 ## Asset manifest
 
