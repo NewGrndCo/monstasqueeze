@@ -37,6 +37,7 @@ Create the official Monsta Squeeze brand site as a retail-discovery experience. 
 - D-003: Existing logo and bottle renders are identity-locked and reused without redesign. Status: validated.
 - D-004: V1 is a lean Vite static site with Netlify Forms, not a framework/backend product. Status: validated.
 - D-005: The October 5 full-page Monsta Squeeze reference is the approved visual target: black/yellow/red beverage-campaign palette, oversized brush typography, product-led hero, eight-card flavor grid, compact locator, #FreeSqueeze banner, stocked-cooler retailer section, and seamless atmospheric transitions. Source: current user request. Status: approved.
+- D-006: Add a prominent Squeeze Rush promotion between flavor discovery and retail discovery, using official game key art and linking to `https://play.monstasqueeze.com`. Source: current user request and game repository metadata. Status: approved.
 
 ## Asset manifest
 
@@ -45,6 +46,8 @@ Create the official Monsta Squeeze brand site as a retail-discovery experience. 
 - A-103: Three-bottle hero composition. Source: approved project asset. Identity-locked.
 - A-104: Monsta character crop. Source: approved Squeeze Rush character sprite. Identity-locked.
 - A-105: Mixed-fruit and lemonade-splash atmosphere. Source: generated from the approved visual target; decorative only, no product packaging or factual content.
+- A-106: Squeeze Rush landscape and mobile promotion art. Source: official game repository assets. Identity-locked.
+- A-107: Squeeze Rush juice-speed motion overlay. Source: generated from the official key art; decorative only, with no characters, logos, packaging, or factual content.
 
 ## Assumptions
 

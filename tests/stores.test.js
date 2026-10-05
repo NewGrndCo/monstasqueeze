@@ -55,7 +55,10 @@ test('approved campaign redesign assets are present', () => {
     'monsta-squeeze-logo.png',
     'retailer-bottles.png',
     'monsta-character.png',
-    'fruit-splash-atmosphere.webp'
+    'fruit-splash-atmosphere.webp',
+    'squeeze-rush-promo.webp',
+    'squeeze-rush-promo-mobile.webp',
+    'squeeze-rush-motion.webp'
   ];
   for (const asset of campaignAssets) assert.equal(existsSync(resolve('public/assets', asset)), true, `${asset} is missing`);
 });
