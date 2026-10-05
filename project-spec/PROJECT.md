@@ -14,6 +14,7 @@ Create the official Monsta Squeeze brand site as a retail-discovery experience. 
 - Brand-led responsive landing experience
 - Eight-product visual lineup using every bottle image from the restock catalog
 - Searchable/filterable list of 13 current retailers with exact addresses
+- Opt-in browser GPS with nearest-first sorting and approximate straight-line distance
 - Google Maps directions links that do not collect browser location
 - Shortage report and `#FreeSqueeze` claim-start form using Netlify Forms
 - Retailer interest mail link
@@ -41,6 +42,7 @@ Create the official Monsta Squeeze brand site as a retail-discovery experience. 
 - A-001: `hello@monstasqueeze.com` is used as a reversible contact placeholder. Confidence: low; impact: medium; replace before production if incorrect.
 - A-002: Shortage reports start a claim review and do not automatically guarantee fulfillment. Confidence: high; impact: high; safe until promotion rules are confirmed.
 - A-003: Individual store-level flavor inventory is unknown, so the locator does not claim a specific flavor is currently stocked. Confidence: high; impact: high.
+- A-004: Store coordinates are a static geocoded snapshot used only for approximate straight-line distance; directions remain the authoritative travel route. Confidence: high; impact: medium.
 
 ## Blockers
 

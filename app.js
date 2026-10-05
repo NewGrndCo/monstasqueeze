@@ -1,4 +1,5 @@
 import { stores } from './stores.js';
+import { distanceMiles, formatDistance } from './geo.js';
 
 const grid = document.querySelector('[data-store-grid]');
 const search = document.querySelector('#store-search');
@@ -6,6 +7,7 @@ const count = document.querySelector('[data-result-count]');
 const noResults = document.querySelector('[data-no-results]');
 const filterButtons = [...document.querySelectorAll('[data-town]')];
 let townFilter = 'all';
+let userLocation = null;
 
 function fullAddress(store) { return `${store.address}, ${store.town}, ${store.state} ${store.zip}`; }
 function mapsUrl(store) { return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(fullAddress(store))}`; }
@@ -13,17 +15,20 @@ function storeCard(store, index) {
   return `<article class="store-card" style="--delay:${Math.min(index * 40, 240)}ms">
     <div class="store-index">${String(index + 1).padStart(2, '0')}</div>
     <div><p>${store.town}, ${store.state}</p><h3>${store.name}</h3><address>${store.address}<br>${store.town}, ${store.state} ${store.zip}</address></div>
+    ${store.distance == null ? '' : `<p class="store-distance"><i></i>${formatDistance(store.distance)}</p>`}
     <a href="${mapsUrl(store)}" target="_blank" rel="noopener" aria-label="Get directions to ${store.name}">Directions <span aria-hidden="true">↗</span></a>
     <button type="button" data-report-store="${store.name.replaceAll('"', '&quot;')}" aria-label="Report a shortage at ${store.name}">Empty shelf?</button>
   </article>`;
 }
 function filteredStores() {
   const term = search.value.trim().toLowerCase();
-  return stores.filter(store => {
+  const results = stores.filter(store => {
     const matchesSearch = !term || `${store.name} ${fullAddress(store)}`.toLowerCase().includes(term);
     const matchesTown = townFilter === 'all' || (townFilter === 'other' ? !['Amityville', 'Wyandanch'].includes(store.town) : store.town === townFilter);
     return matchesSearch && matchesTown;
-  });
+  }).map(store => ({ ...store, distance: userLocation ? distanceMiles(userLocation, store) : null }));
+  if (userLocation) results.sort((first, second) => first.distance - second.distance);
+  return results;
 }
 function renderStores() {
   const results = filteredStores();
@@ -40,6 +45,34 @@ filterButtons.forEach(button => button.addEventListener('click', () => {
   filterButtons.forEach(item => item.classList.toggle('active', item === button));
   renderStores();
 }));
+
+const locationButton = document.querySelector('[data-use-location]');
+const locationStatus = document.querySelector('[data-location-status]');
+locationButton?.addEventListener('click', () => {
+  if (!navigator.geolocation) {
+    locationStatus.textContent = 'Location is not supported by this browser. You can still search by town or ZIP code.';
+    return;
+  }
+  locationButton.disabled = true;
+  locationButton.classList.add('loading');
+  locationStatus.textContent = 'Waiting for location permission…';
+  navigator.geolocation.getCurrentPosition(position => {
+    userLocation = { lat: position.coords.latitude, lon: position.coords.longitude };
+    townFilter = 'all';
+    search.value = '';
+    filterButtons.forEach(button => button.classList.toggle('active', button.dataset.town === 'all'));
+    locationButton.textContent = 'Location on';
+    locationButton.classList.remove('loading');
+    locationStatus.textContent = 'Stores are sorted nearest first. Distances are approximate straight-line miles.';
+    renderStores();
+  }, error => {
+    locationButton.disabled = false;
+    locationButton.classList.remove('loading');
+    locationStatus.textContent = error.code === 1
+      ? 'Location access was not allowed. Search by town or ZIP code instead.'
+      : 'Your location could not be found. Try again or search by town or ZIP code.';
+  }, { enableHighAccuracy: false, timeout: 10000, maximumAge: 300000 });
+});
 
 const dialog = document.querySelector('[data-report-dialog]');
 const retailerSelect = document.querySelector('[data-retailer-select]');

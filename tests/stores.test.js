@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { stores } from '../stores.js';
 import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { distanceMiles, formatDistance } from '../geo.js';
 
 const officialGameStores = [
   ['Jelly Gumbo', '522 Broadway, Amityville, NY 11701'],
@@ -36,15 +37,30 @@ test('every official retailer produces a valid full-address Maps destination', (
 
 test('public lineup contains every product image in the restock catalog', () => {
   const catalogAssets = [
-    'strawberry-lemonade.webp',
-    'classic-lemonade.webp',
-    'half-half.webp',
-    'alkaline-water.webp',
-    'blueberry-lemonade.webp',
-    'mango-lemonade.webp',
-    'raspberry-lemonade.webp',
-    'pineapple-lemonade.webp'
+    'strawberry-lemonade-cutout.webp',
+    'classic-lemonade-cutout.webp',
+    'half-half-cutout.webp',
+    'alkaline-water-cutout.webp',
+    'blueberry-lemonade-cutout.webp',
+    'mango-lemonade-cutout.webp',
+    'raspberry-lemonade-cutout.webp',
+    'pineapple-lemonade-cutout.webp'
   ];
   assert.equal(catalogAssets.length, 8);
   for (const asset of catalogAssets) assert.equal(existsSync(resolve('public/assets', asset)), true, `${asset} is missing`);
+});
+
+test('all official stores have validated coordinates for opt-in distance sorting', () => {
+  for (const store of stores) {
+    assert.ok(Number.isFinite(store.lat));
+    assert.ok(Number.isFinite(store.lon));
+    assert.ok(store.lat > 40 && store.lat < 42);
+    assert.ok(store.lon < -72 && store.lon > -75);
+  }
+});
+
+test('distance calculation returns human-readable approximate miles', () => {
+  const nearby = distanceMiles(stores[0], stores[1]);
+  assert.ok(nearby > 0 && nearby < 1);
+  assert.match(formatDistance(nearby), /mi away$/);
 });
