@@ -50,6 +50,16 @@ test('public lineup contains every product image in the restock catalog', () => 
   for (const asset of catalogAssets) assert.equal(existsSync(resolve('public/assets', asset)), true, `${asset} is missing`);
 });
 
+test('approved campaign redesign assets are present', () => {
+  const campaignAssets = [
+    'monsta-squeeze-logo.png',
+    'retailer-bottles.png',
+    'monsta-character.png',
+    'fruit-splash-atmosphere.webp'
+  ];
+  for (const asset of campaignAssets) assert.equal(existsSync(resolve('public/assets', asset)), true, `${asset} is missing`);
+});
+
 test('all official stores have validated coordinates for opt-in distance sorting', () => {
   for (const store of stores) {
     assert.ok(Number.isFinite(store.lat));

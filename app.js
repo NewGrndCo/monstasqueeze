@@ -8,6 +8,8 @@ const noResults = document.querySelector('[data-no-results]');
 const filterButtons = [...document.querySelectorAll('[data-town]')];
 let townFilter = 'all';
 let userLocation = null;
+let storesExpanded = false;
+const viewAllButton = document.querySelector('[data-view-all]');
 
 function fullAddress(store) { return `${store.address}, ${store.town}, ${store.state} ${store.zip}`; }
 function mapsUrl(store) { return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(fullAddress(store))}`; }
@@ -32,19 +34,32 @@ function filteredStores() {
 }
 function renderStores() {
   const results = filteredStores();
-  grid.innerHTML = results.map(storeCard).join('');
+  const isFiltered = search.value.trim() || townFilter !== 'all';
+  const displayedResults = storesExpanded || isFiltered ? results : results.slice(0, 3);
+  grid.innerHTML = displayedResults.map(storeCard).join('');
   count.textContent = results.length;
   noResults.hidden = results.length > 0;
   grid.hidden = results.length === 0;
+  viewAllButton.hidden = results.length <= 3 || Boolean(isFiltered);
+  viewAllButton.setAttribute('aria-expanded', String(storesExpanded));
+  viewAllButton.innerHTML = storesExpanded
+    ? 'Show featured locations <span>↑</span>'
+    : `View all ${results.length} retail locations <span>→</span>`;
 }
 
 search?.addEventListener('input', renderStores);
 document.querySelector('[data-clear-search]')?.addEventListener('click', () => { search.value = ''; search.focus(); renderStores(); });
 filterButtons.forEach(button => button.addEventListener('click', () => {
   townFilter = button.dataset.town;
+  storesExpanded = false;
   filterButtons.forEach(item => item.classList.toggle('active', item === button));
   renderStores();
 }));
+viewAllButton?.addEventListener('click', () => {
+  storesExpanded = !storesExpanded;
+  renderStores();
+  if (!storesExpanded) document.querySelector('#find')?.scrollIntoView({ behavior: 'smooth' });
+});
 
 const locationButton = document.querySelector('[data-use-location]');
 const locationStatus = document.querySelector('[data-location-status]');
