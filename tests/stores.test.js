@@ -104,11 +104,8 @@ test('retailer section links directly to the restock portal', () => {
   assert.match(html, /href="https:\/\/restock\.monstasqueeze\.com"[^>]*aria-label="Restock Monsta Squeeze"[^>]*>Restock/);
 });
 
-test('Netlify credit stays accessible while living as a subdued footer background badge', () => {
-  const html = readFileSync(resolve('index.html'), 'utf8');
+test('Netlify credit is visually recessed when the host injects its required badge', () => {
   const css = readFileSync(resolve('styles.css'), 'utf8');
-  assert.match(html, /class="netlify-badge"[^>]*href="https:\/\/www\.netlify\.com"/);
-  assert.match(html, /aria-label="Powered by Netlify"/);
   assert.match(css, /\.site-footer\{position:relative;isolation:isolate/);
-  assert.match(css, /\.netlify-badge\{position:absolute;z-index:0/);
+  assert.match(css, /#nl-badge-frame\{z-index:0!important;opacity:\.2!important/);
 });

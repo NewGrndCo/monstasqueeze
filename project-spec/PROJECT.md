@@ -41,7 +41,7 @@ Create the official Monsta Squeeze brand site as a retail-discovery experience. 
 - D-007: Rebuild the hero as a three-depth-layer composition using generated atmosphere, the identity-locked Strawberry Lemonade / Classic Lemonade / Half & Half bottle cutouts, and a generated fruit-and-juice foreground. Blueberry is excluded from the hero. Source: current user request. Status: approved.
 - D-008: Shortage reports collect no email or phone number. Name remains required, and reporters can either capture a rear-camera photo or upload an existing image. Source: current user request. Status: approved.
 - D-009: Place a direct “Restock Monsta Squeeze” portal action beside “Become a retailer,” linking to `https://restock.monstasqueeze.com`. Source: current user request. Status: approved.
-- D-010: Keep the Netlify hosting credit present as a low-contrast, accessible footer watermark behind the primary footer content instead of a front-facing promotional element. Source: current user request. Status: approved.
+- D-010: Keep the host-injected Netlify hosting credit present, but visually recess its runtime badge behind the page artwork instead of presenting it as a front-facing promotional element. Source: current user request. Status: approved.
 
 ## Asset manifest
 
