@@ -1,0 +1,50 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { stores } from '../stores.js';
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
+
+const officialGameStores = [
+  ['Jelly Gumbo', '522 Broadway, Amityville, NY 11701'],
+  ['Casa Blanca Deli & Smoke Shop', '544 Broadway, Amityville, NY 11701'],
+  ['M&B Deli', '571 Broadway, Amityville, NY 11701'],
+  ['Jamaican Grand Restaurant (Lil Jamaica)', '691 Broadway, Amityville, NY 11701'],
+  ['M&R Tobacco and Convenience', '703 Broadway, Amityville, NY 11701'],
+  ['Jason’s Deli', '1180 Sunrise Hwy, Copiague, NY 11726'],
+  ['Cloud 9', '3277 Sunrise Highway Service Rd, Islip Terrace, NY 11752'],
+  ['Pot Scrappers Jelly Gumbo', '935 Little East Neck Rd, West Babylon, NY 11704'],
+  ['M&A Supermarket', '1531 Straight Path, Wyandanch, NY 11798'],
+  ['Alex Convenience Store', '301 Merritt Ave, Unit 3, Wyandanch, NY 11798'],
+  ['HP State Gas Station', '1373 Straight Path, Wyandanch, NY 11798'],
+  ['La Plaza', '1311 Straight Path, Wyandanch, NY 11798'],
+  ['Respect My Spoon', '12 Squaw Ln, Mastic, NY 11950']
+];
+
+test('new retail locator matches all 13 official game stores exactly', () => {
+  assert.equal(stores.length, 13);
+  assert.deepEqual(stores.map(store => [store.name, `${store.address}, ${store.town}, ${store.state} ${store.zip}`]), officialGameStores);
+});
+
+test('every official retailer produces a valid full-address Maps destination', () => {
+  for (const store of stores) {
+    const address = `${store.address}, ${store.town}, ${store.state} ${store.zip}`;
+    const url = new URL(`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`);
+    assert.equal(url.searchParams.get('destination'), address);
+    assert.match(address, /, NY \d{5}$/);
+  }
+});
+
+test('public lineup contains every product image in the restock catalog', () => {
+  const catalogAssets = [
+    'strawberry-lemonade.webp',
+    'classic-lemonade.webp',
+    'half-half.webp',
+    'alkaline-water.webp',
+    'blueberry-lemonade.webp',
+    'mango-lemonade.webp',
+    'raspberry-lemonade.webp',
+    'pineapple-lemonade.webp'
+  ];
+  assert.equal(catalogAssets.length, 8);
+  for (const asset of catalogAssets) assert.equal(existsSync(resolve('public/assets', asset)), true, `${asset} is missing`);
+});

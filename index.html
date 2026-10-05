@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0a08">
+  <meta name="description" content="Find Monsta Squeeze flavors at a retailer near you, report an empty shelf, and start a #FreeSqueeze claim.">
+  <meta property="og:title" content="Monsta Squeeze — Find Your Flavor">
+  <meta property="og:description" content="Big flavor lives on local shelves. Find a retailer or report a shortage.">
+  <meta property="og:image" content="/assets/retailer-bottles.png">
+  <title>Monsta Squeeze | Find Your Flavor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" type="module"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="announcement">EMPTY SHELF? <a href="#shortage">REPORT IT &amp; GET <strong>#FREESQUEEZE</strong></a></div>
+  <header class="site-header" data-header>
+    <a class="brand" href="#top" aria-label="Monsta Squeeze home">
+      <img src="/assets/monsta-squeeze-logo.png" alt="Monsta Squeeze">
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span><span class="sr-only">Open menu</span></button>
+    <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+      <a href="#flavors">Flavors</a>
+      <a href="#find">Find in stores</a>
+      <a href="#shortage">Report a shortage</a>
+      <a class="nav-game" href="https://play.monstasqueeze.com" target="_blank" rel="noopener">Play Squeeze Rush <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span></span> Big flavor. Local shelves.</p>
+        <h1>SQUEEZE<br>THE <em>MONSTA.</em></h1>
+        <p class="hero-lede">Pick your flavor, find the closest retailer, and go get your squeeze. No cart. No shipping. Just the store that has it.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#find">Find a retailer <span aria-hidden="true">↗</span></a>
+          <a class="button button-ghost" href="#shortage">Report a shortage</a>
+        </div>
+        <div class="hero-meta" aria-label="Store availability summary">
+          <div><strong>13</strong><span>Retail locations</span></div>
+          <div><strong>8</strong><span>Featured products</span></div>
+          <div><strong>NY</strong><span>Local store pickup</span></div>
+        </div>
+      </div>
+      <div class="hero-stage reveal" aria-label="Three Monsta Squeeze bottles: Strawberry, Lemonade, and Half & Half">
+        <img src="/assets/retailer-bottles.png" alt="Strawberry, Lemonade, and Half & Half Monsta Squeeze bottles surrounded by fruit and golden splashes">
+        <div class="availability-pill"><i></i><span>Available at select retailers</span></div>
+      </div>
+      <div class="hero-marquee" aria-hidden="true"><span>FIND IT LOCAL ✦ SQUEEZE THE MONSTA ✦ REPORT THE SHORTAGE ✦ GET #FREESQUEEZE ✦ </span><span>FIND IT LOCAL ✦ SQUEEZE THE MONSTA ✦ REPORT THE SHORTAGE ✦ GET #FREESQUEEZE ✦ </span></div>
+    </section>
+
+    <section class="flavors section" id="flavors">
+      <div class="section-head reveal">
+        <div><p class="kicker">The lineup</p><h2>FIND YOUR<br><em>FAVORITE.</em></h2></div>
+        <p>Meet the Monsta Squeeze flavor lineup, then check the retailer list before you make the trip.</p>
+      </div>
+      <div class="flavor-rail" data-flavor-rail>
+        <article class="flavor-card flavor-strawberry reveal"><span class="flavor-number">01</span><img src="/assets/strawberry-lemonade.webp" alt="Strawberry Lemonade bottle"><div><p>Bright &amp; berry-forward</p><h3>Strawberry<br>Lemonade</h3><a href="#find" data-flavor="Strawberry Lemonade">Find this flavor <span>↗</span></a></div></article>
+        <article class="flavor-card flavor-classic reveal"><span class="flavor-number">02</span><img src="/assets/classic-lemonade.webp" alt="Classic Lemonade bottle"><div><p>The essential squeeze</p><h3>Classic<br>Lemonade</h3><a href="#find" data-flavor="Classic Lemonade">Find this flavor <span>↗</span></a></div></article>
+        <article class="flavor-card flavor-half reveal"><span class="flavor-number">03</span><img src="/assets/half-half.webp" alt="Half & Half bottle"><div><p>A two-sided classic</p><h3>Half<br>&amp; Half</h3><a href="#find" data-flavor="Half & Half">Find this flavor <span>↗</span></a></div></article>
+        <article class="flavor-card flavor-mango reveal"><span class="flavor-number">04</span><img src="/assets/mango-lemonade.webp" alt="Mango Lemonade bottle"><div><p>Tropical meets tart</p><h3>Mango<br>Lemonade</h3><a href="#find" data-flavor="Mango Lemonade">Find this flavor <span>↗</span></a></div></article>
+        <article class="flavor-card flavor-pineapple reveal"><span class="flavor-number">05</span><img src="/assets/pineapple-lemonade.webp" alt="Pineapple Lemonade bottle"><div><p>Golden island energy</p><h3>Pineapple<br>Lemonade</h3><a href="#find" data-flavor="Pineapple Lemonade">Find this flavor <span>↗</span></a></div></article>
+        <article class="flavor-card flavor-blueberry reveal"><span class="flavor-number">06</span><img src="/assets/blueberry-lemonade.webp" alt="Blueberry Lemonade bottle"><div><p>Deep berry zing</p><h3>Blueberry<br>Lemonade</h3><a href="#find" data-flavor="Blueberry Lemonade">Find this flavor <span>↗</span></a></div></article>
+        <article class="flavor-card flavor-raspberry reveal"><span class="flavor-number">07</span><img src="/assets/raspberry-lemonade.webp" alt="Raspberry Lemonade bottle"><div><p>A tart berry rush</p><h3>Raspberry<br>Lemonade</h3><a href="#find" data-flavor="Raspberry Lemonade">Find this flavor <span>↗</span></a></div></article>
+        <article class="flavor-card flavor-water reveal"><span class="flavor-number">08</span><img src="/assets/alkaline-water.webp" alt="Alkaline Water bottle"><div><p>Water joins the lineup</p><h3>Alkaline<br>Water</h3><a href="#find" data-flavor="Alkaline Water">Find this product <span>↗</span></a></div></article>
+      </div>
+    </section>
+
+    <section class="finder section" id="find">
+      <div class="finder-intro reveal">
+        <p class="kicker">Retail locator</p>
+        <h2>YOUR NEXT<br>SQUEEZE IS <em>CLOSE.</em></h2>
+        <p>Search by town, ZIP code, store, or street. Tap any retailer for directions from your current location.</p>
+      </div>
+      <div class="finder-panel reveal">
+        <div class="search-wrap">
+          <label for="store-search">Search 13 retail locations</label>
+          <div class="search-field"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg><input id="store-search" type="search" placeholder="Try Amityville, 11798, or a store name" autocomplete="postal-code"><button type="button" data-clear-search aria-label="Clear search">×</button></div>
+        </div>
+        <div class="finder-toolbar"><p aria-live="polite"><strong data-result-count>13</strong> locations found</p><div class="town-filters" aria-label="Filter by town"><button class="active" type="button" data-town="all">All</button><button type="button" data-town="Amityville">Amityville</button><button type="button" data-town="Wyandanch">Wyandanch</button><button type="button" data-town="other">More towns</button></div></div>
+        <div class="store-grid" data-store-grid></div>
+        <div class="no-results" data-no-results hidden><span>?</span><h3>No Monsta spotted there yet.</h3><p>Try another town or tell us where you want Monsta Squeeze stocked.</p><a href="#shortage" class="button button-primary">Report this area</a></div>
+      </div>
+    </section>
+
+    <section class="shortage section" id="shortage">
+      <div class="shortage-art reveal" aria-hidden="true">
+        <div class="hash">#FREE<br>SQUEEZE</div>
+        <img src="/assets/strawberry-lemonade.webp" alt="">
+        <div class="burst">EMPTY<br>SHELF?</div>
+      </div>
+      <div class="shortage-content reveal">
+        <p class="kicker">Be our eyes in the wild</p>
+        <h2>REPORT THE<br>SHORTAGE.<br><em>GET THE SQUEEZE.</em></h2>
+        <p class="shortage-lede">Went looking for Monsta Squeeze and the shelf was empty? Tell us what happened to start your <strong>#FreeSqueeze</strong> claim. We’ll follow up using the contact details you provide.</p>
+        <button class="button button-dark" type="button" data-open-report>Start your report <span aria-hidden="true">→</span></button>
+        <ol class="steps">
+          <li><span>01</span><div><strong>Spot it</strong><p>Visit a listed retailer and look for your flavor.</p></div></li>
+          <li><span>02</span><div><strong>Report it</strong><p>Send us the store and the flavor that was missing.</p></div></li>
+          <li><span>03</span><div><strong>Get the follow-up</strong><p>We’ll use your report to review the shortage and contact you.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="retailer-cta section">
+      <div class="retailer-copy reveal"><p class="kicker">For retailers</p><h2>PUT A MONSTA<br>ON YOUR <em>SHELF.</em></h2><p>Own or manage a store? Connect with the Monsta Squeeze team about retail availability.</p><a class="button button-primary" href="mailto:hello@monstasqueeze.com?subject=Retailer%20interest">Become a retailer <span>↗</span></a></div>
+      <div class="retailer-visual reveal"><div class="shelf-label">LOCAL SHELF ENERGY</div><img src="/assets/retailer-bottles.png" alt="Monsta Squeeze bottles on a black and gold background"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <img src="/assets/monsta-squeeze-logo.png" alt="Monsta Squeeze" class="footer-logo">
+      <p>Bold flavor lives on local shelves.</p>
+      <div class="footer-links"><div><strong>Explore</strong><a href="#flavors">Flavors</a><a href="#find">Find in stores</a><a href="#shortage">#FreeSqueeze</a></div><div><strong>Connect</strong><a href="mailto:hello@monstasqueeze.com">Contact</a><a href="https://play.monstasqueeze.com" target="_blank" rel="noopener">Play Squeeze Rush</a><a href="https://restock.monstasqueeze.com" target="_blank" rel="noopener">Retailer portal</a></div></div>
+    </div>
+    <div class="footer-bottom"><span>© <span data-year></span> Monsta Squeeze</span><span>Powered by local retail partners.</span></div>
+  </footer>
+
+  <dialog class="report-dialog" data-report-dialog aria-labelledby="report-title">
+    <button class="dialog-close" type="button" data-close-report aria-label="Close report form">×</button>
+    <div class="dialog-head"><p class="kicker">#FreeSqueeze</p><h2 id="report-title">REPORT A<br><em>SHORTAGE.</em></h2><p>Tell us where the Monsta went missing. Required fields are marked with an asterisk.</p></div>
+    <form name="shortage-report" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field" class="report-form">
+      <input type="hidden" name="form-name" value="shortage-report">
+      <p class="sr-only"><label>Don’t fill this out: <input name="bot-field"></label></p>
+      <label><span>Your name *</span><input name="name" required autocomplete="name"></label>
+      <label><span>Email *</span><input type="email" name="email" required autocomplete="email"></label>
+      <label><span>Phone</span><input type="tel" name="phone" autocomplete="tel"></label>
+      <label><span>Retailer *</span><select name="retailer" required data-retailer-select><option value="">Choose the store</option></select></label>
+      <label><span>Missing product *</span><select name="flavor" required><option value="">Choose the product</option><option>Strawberry Lemonade</option><option>Classic Lemonade</option><option>Half &amp; Half</option><option>Alkaline Water</option><option>Blueberry Lemonade</option><option>Mango Lemonade</option><option>Raspberry Lemonade</option><option>Pineapple Lemonade</option><option>Multiple products</option></select></label>
+      <label><span>Date spotted *</span><input type="date" name="date" required data-report-date></label>
+      <label class="wide"><span>What did you see?</span><textarea name="details" rows="4" placeholder="Example: The cooler was empty, or the flavor I wanted wasn't available."></textarea></label>
+      <label class="check wide"><input type="checkbox" name="contact-consent" value="yes" required><span>I agree that Monsta Squeeze may contact me about this shortage report and #FreeSqueeze claim. *</span></label>
+      <button class="button button-primary wide" type="submit">Send shortage report <span aria-hidden="true">→</span></button>
+      <p class="form-note wide">Submitting this form starts the review of your report. It does not confirm fulfillment until the Monsta Squeeze team follows up.</p>
+    </form>
+  </dialog>
+</body>
+</html>

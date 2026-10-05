@@ -1,0 +1,63 @@
+# Monsta Squeeze Website Contract
+
+Status: `validated`  
+Mode: `professional`  
+Vertical: beverage / retail discovery  
+Current phase: implementation and local QA
+
+## Objective
+
+Create the official Monsta Squeeze brand site as a retail-discovery experience. Customers do not purchase on the website. They discover flavors, locate one of the 13 confirmed retailers, open directions, and report a shortage to start a `#FreeSqueeze` claim.
+
+## V1 scope
+
+- Brand-led responsive landing experience
+- Eight-product visual lineup using every bottle image from the restock catalog
+- Searchable/filterable list of 13 current retailers with exact addresses
+- Google Maps directions links that do not collect browser location
+- Shortage report and `#FreeSqueeze` claim-start form using Netlify Forms
+- Retailer interest mail link
+- Links to Squeeze Rush and the existing retailer portal
+- SEO, keyboard navigation, reduced motion, responsive layouts, empty states, and security headers
+
+## Out of scope
+
+- Ecommerce, cart, checkout, prices, shipping, or payment
+- Customer accounts
+- Guaranteed reward fulfillment logic or unconfirmed promotion rules
+- Live inventory by flavor
+- Staff CMS or location database integration
+- Production deployment and custom-domain setup until separately authorized
+
+## Decisions
+
+- D-001: Retail discovery replaces the ecommerce journey. Source: current user request. Status: approved.
+- D-002: The existing 13-location list in Squeeze Rush is the V1 retailer source. Source: repository runtime/tests. Status: validated.
+- D-003: Existing logo and bottle renders are identity-locked and reused without redesign. Status: validated.
+- D-004: V1 is a lean Vite static site with Netlify Forms, not a framework/backend product. Status: validated.
+
+## Assumptions
+
+- A-001: `hello@monstasqueeze.com` is used as a reversible contact placeholder. Confidence: low; impact: medium; replace before production if incorrect.
+- A-002: Shortage reports start a claim review and do not automatically guarantee fulfillment. Confidence: high; impact: high; safe until promotion rules are confirmed.
+- A-003: Individual store-level flavor inventory is unknown, so the locator does not claim a specific flavor is currently stocked. Confidence: high; impact: high.
+
+## Blockers
+
+- B-001: Official contact email and social links need confirmation before production.
+- B-002: `#FreeSqueeze` eligibility, fulfillment, geography, privacy, and legal terms need business approval before production.
+- B-003: Netlify site connection, forms activation, analytics, and `monstasqueeze.com` domain routing are not yet configured.
+
+## Acceptance criteria
+
+- Given a customer searches a town, ZIP code, address, or store name, when text is entered, then matching retailers update immediately with an accurate result count.
+- Given a retailer card, when Directions is activated, then Google Maps opens with the full confirmed destination address.
+- Given no matching retailers, when a search returns zero results, then the empty state offers a direct shortage/area report path.
+- Given a customer reports a shortage, when all required fields are completed and the deployed form submits, then Netlify records the submission and routes to the confirmation page.
+- Given a phone viewport, when navigating the site, then the menu, flavor rail, store cards, form, and CTAs remain usable without horizontal page overflow.
+- Given keyboard-only navigation, when all interactive controls are traversed, then focus is visible and dialogs can be opened and closed.
+- Given reduced-motion preference, when the site loads, then marquee and entrance animation are disabled.
+
+## Quality memory
+
+No active global HELIX quality lessons were available at project start.
