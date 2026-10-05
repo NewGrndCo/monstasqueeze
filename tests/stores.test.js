@@ -109,3 +109,17 @@ test('Netlify credit is visually recessed when the host injects its required bad
   assert.match(css, /\.site-footer\{position:relative;isolation:isolate/);
   assert.match(css, /#nl-badge-frame\{z-index:0!important;opacity:\.2!important/);
 });
+
+test('SEO metadata includes canonical, favicon, and 1200x630 share preview assets', () => {
+  const html = readFileSync(resolve('index.html'), 'utf8');
+  assert.match(html, /rel="canonical" href="https:\/\/monstasqueeze\.com\/"/);
+  assert.match(html, /rel="icon" href="\/favicon\.ico"/);
+  assert.match(html, /rel="apple-touch-icon" sizes="180x180" href="\/assets\/apple-touch-icon\.png"/);
+  assert.match(html, /property="og:image" content="https:\/\/monstasqueeze\.com\/assets\/monsta-squeeze-share\.jpg"/);
+  assert.match(html, /name="twitter:card" content="summary_large_image"/);
+  assert.match(html, /og:image:width" content="1200"/);
+  assert.match(html, /og:image:height" content="630"/);
+  for (const asset of ['favicon.ico', 'assets/favicon-32.png', 'assets/favicon-64.png', 'assets/apple-touch-icon.png', 'assets/monsta-squeeze-share.jpg']) {
+    assert.equal(existsSync(resolve('public', asset)), true, `${asset} is missing`);
+  }
+});

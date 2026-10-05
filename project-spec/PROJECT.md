@@ -42,6 +42,7 @@ Create the official Monsta Squeeze brand site as a retail-discovery experience. 
 - D-008: Shortage reports collect no email or phone number. Name remains required, and reporters can either capture a rear-camera photo or upload an existing image. Source: current user request. Status: approved.
 - D-009: Place a direct “Restock Monsta Squeeze” portal action beside “Become a retailer,” linking to `https://restock.monstasqueeze.com`. Source: current user request. Status: approved.
 - D-010: Keep the host-injected Netlify hosting credit present, but visually recess its runtime badge behind the page artwork instead of presenting it as a front-facing promotional element. Source: current user request. Status: approved.
+- D-011: Use a canonical HTTPS URL, favicon set, Organization JSON-LD, and a branded 1200x630 JPEG preview for link unfurls in text messages and social shares. Source: current user request. Status: approved.
 
 ## Asset manifest
 
@@ -54,6 +55,8 @@ Create the official Monsta Squeeze brand site as a retail-discovery experience. 
 - A-107: Squeeze Rush juice-speed motion overlay. Source: generated from the official key art; decorative only, with no characters, logos, packaging, or factual content.
 - A-108: Hero atmosphere V2. Source: generated from approved campaign art; decorative black/red/gold background with a left-side copy safe zone and no products or text.
 - A-109: Hero fruit splash V2. Source: generated transparent strawberry, lemon, tea-leaf, ice, and juice foreground; no blueberries, bottles, logos, or text.
+- A-110: Monsta Squeeze share preview JPEG. Source: deterministic composition of approved hero atmosphere, logo, and three identity-locked bottle cutouts; 1200x630 Open Graph/Twitter asset.
+- A-111: Monsta Squeeze favicon set. Source: approved logo rendered to ICO, PNG, and Apple Touch Icon sizes.
 
 ## Assumptions
 
