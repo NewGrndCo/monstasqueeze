@@ -11,6 +11,9 @@ let userLocation = null;
 let storesExpanded = false;
 const viewAllButton = document.querySelector('[data-view-all]');
 
+document.querySelectorAll('[data-retailer-count]').forEach(element => { element.textContent = stores.length; });
+document.querySelector('[data-retailer-badge]')?.setAttribute('aria-label', `${stores.length} retail locations`);
+
 function fullAddress(store) { return `${store.address}, ${store.town}, ${store.state} ${store.zip}`; }
 function mapsUrl(store) { return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(fullAddress(store))}`; }
 function storeCard(store, index) {
@@ -172,6 +175,39 @@ document.querySelectorAll('[data-flavor]').forEach(link => link.addEventListener
   filterButtons.forEach(button => button.classList.toggle('active', button.dataset.town === 'all'));
   renderStores();
 }));
+
+const legalDialog = document.querySelector('[data-legal-dialog]');
+const legalContent = document.querySelector('[data-legal-content]');
+const legalNotices = {
+  privacy: {
+    title: 'Privacy policy',
+    eyebrow: 'Your information',
+    body: `<p>Monsta Squeeze uses this website to help visitors explore products, find retailers, and report product shortages. The site does not offer customer accounts or take payments.</p>
+      <h3>Information you choose to provide</h3><p>A shortage report may include your name, the retailer, the missing product, the date observed, optional notes, and an optional shelf photo. This information is used to review the report and help prioritize retailer follow-up and restocking.</p>
+      <h3>Location and external services</h3><p>If you choose “Use my location,” your browser asks for permission and calculates nearby stores on your device. The website does not submit your coordinates with a shortage report. Directions open in Google Maps, which applies its own privacy practices.</p>
+      <h3>Questions</h3><p>Questions about this notice or a submitted report can be sent to <a href="mailto:hello@monstasqueeze.com">hello@monstasqueeze.com</a>.</p>`
+  },
+  terms: {
+    title: 'Terms of service',
+    eyebrow: 'Website terms',
+    body: `<p>By using this website, you agree to use it lawfully and not interfere with its operation, forms, or other visitors.</p>
+      <h3>Retailer information</h3><p>Store listings and directions are provided for convenience. Locations, hours, product selection, and availability may change, so visitors should confirm details with the retailer.</p>
+      <h3>Shortage reports</h3><p>Submit accurate information and only upload photos you have the right to share. A shortage report helps Monsta Squeeze review retail availability; it does not guarantee inventory, a restock date, or a reward.</p>
+      <h3>External links</h3><p>The website links to third-party services such as Google Maps and the Squeeze Rush game. Those services operate under their own terms.</p>
+      <h3>Questions</h3><p>Questions about these terms can be sent to <a href="mailto:hello@monstasqueeze.com">hello@monstasqueeze.com</a>.</p>`
+  }
+};
+function openLegalNotice(type) {
+  const notice = legalNotices[type];
+  if (!notice || !legalDialog || !legalContent) return;
+  legalContent.innerHTML = `<header><p class="brush-note">${notice.eyebrow}</p><h2 id="legal-title">${notice.title}</h2><p class="legal-effective">Effective October 6, 2026</p></header><div class="legal-copy">${notice.body}</div>`;
+  legalDialog.showModal();
+  document.body.classList.add('dialog-open');
+}
+document.querySelectorAll('[data-open-legal]').forEach(button => button.addEventListener('click', () => openLegalNotice(button.dataset.openLegal)));
+document.querySelector('[data-close-legal]')?.addEventListener('click', () => legalDialog.close());
+legalDialog?.addEventListener('close', () => document.body.classList.remove('dialog-open'));
+legalDialog?.addEventListener('click', event => { if (event.target === legalDialog) legalDialog.close(); });
 
 document.querySelector('[data-year]').textContent = new Date().getFullYear();
 renderStores();

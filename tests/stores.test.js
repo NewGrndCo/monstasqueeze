@@ -60,7 +60,8 @@ test('approved campaign redesign assets are present', () => {
     'squeeze-rush-promo-mobile.webp',
     'squeeze-rush-motion.webp',
     'hero-atmosphere-v2.webp',
-    'hero-fruit-splash-v2.webp'
+    'hero-fruit-splash-v2.webp',
+    'monsta-retail-fridge-v1.png'
   ];
   for (const asset of campaignAssets) assert.equal(existsSync(resolve('public/assets', asset)), true, `${asset} is missing`);
 });
@@ -102,6 +103,34 @@ test('shortage report accepts camera or uploaded photos without contact fields',
 test('retailer section links directly to the restock portal', () => {
   const html = readFileSync(resolve('index.html'), 'utf8');
   assert.match(html, /href="https:\/\/restock\.monstasqueeze\.com"[^>]*aria-label="Restock Monsta Squeeze"[^>]*>Restock/);
+});
+
+test('product and retailer presentation uses the approved clean composition', () => {
+  const html = readFileSync(resolve('index.html'), 'utf8');
+  const app = readFileSync(resolve('app.js'), 'utf8');
+  const flavorSection = html.match(/<section class="flavors[\s\S]*?<\/section>/)?.[0] ?? '';
+  const shortageSection = html.match(/<section class="shortage[\s\S]*?<\/section>/)?.[0] ?? '';
+  const retailerSection = html.match(/<section class="retailer-cta[\s\S]*?<\/section>/)?.[0] ?? '';
+
+  assert.doesNotMatch(flavorSection, /Find this flavor|Find this product/);
+  assert.doesNotMatch(shortageSection, /monsta-character/);
+  assert.match(retailerSection, /monsta-retail-fridge-v1\.png/);
+  assert.match(retailerSection, /class="fridge-brand"/);
+  assert.equal((retailerSection.match(/-cutout\.webp/g) ?? []).length, 8);
+  assert.match(html, /data-retailer-badge/);
+  assert.match(app, /data-retailer-count/);
+  assert.match(app, /stores\.length/);
+});
+
+test('privacy and terms controls open accessible native dialogs', () => {
+  const html = readFileSync(resolve('index.html'), 'utf8');
+  const app = readFileSync(resolve('app.js'), 'utf8');
+  assert.match(html, /data-open-legal="privacy"/);
+  assert.match(html, /data-open-legal="terms"/);
+  assert.match(html, /<dialog class="legal-dialog" data-legal-dialog aria-labelledby="legal-title">/);
+  assert.match(app, /privacy:\s*\{/);
+  assert.match(app, /terms:\s*\{/);
+  assert.match(app, /legalDialog\.showModal\(\)/);
 });
 
 test('Netlify credit is visually recessed when the host injects its required badge', () => {

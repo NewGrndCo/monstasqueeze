@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#080808">
   <meta name="robots" content="index,follow">
-  <meta name="description" content="Explore every Monsta Squeeze flavor, find one of 13 local retailers, or report a shortage for #FreeSqueeze.">
+  <meta name="description" content="Explore every Monsta Squeeze flavor, find a local retailer, or report a shortage for #FreeSqueeze.">
   <link rel="canonical" href="https://monstasqueeze.com/">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
@@ -39,7 +39,6 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <div class="announcement">BOLD FLAVOR <i>•</i> FRESH SQUEEZED <i>•</i> MONSTA APPROVED.</div>
   <header class="site-header" data-header>
     <a class="brand" href="#top" aria-label="Monsta Squeeze home"><img src="/assets/monsta-squeeze-logo.png" alt="Monsta Squeeze"></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span><span class="sr-only">Open menu</span></button>
@@ -59,7 +58,7 @@
       </div>
       <img class="hero-foreground" src="/assets/hero-fruit-splash-v2.webp" alt="" aria-hidden="true">
       <div class="hero-copy reveal"><h1><span>SQUEEZE THE</span><strong>MONSTA</strong></h1><p>Bold flavor. <b>Fresh squeezed.</b><br>Monsta approved.</p><a class="pill-button" href="#find"><span class="pin-icon">●</span> Find a store <b aria-hidden="true">→</b></a></div>
-      <div class="retail-badge" aria-label="13 retail locations"><strong>13</strong><span>Retail<br>locations</span></div>
+      <div class="retail-badge" data-retailer-badge><strong data-retailer-count>0</strong><span>Retail<br>locations</span></div>
     </section>
 
     <section class="benefits" aria-label="Monsta Squeeze qualities">
@@ -72,14 +71,14 @@
     <section class="flavors section" id="flavors">
       <div class="flavor-heading reveal"><p class="brush-note">Our flavors</p><h2>Eight bold flavors. <em>Endless obsession.</em></h2><div class="paint-note">Real fruit.<br>Real flavor.<br>Monsta style.</div></div>
       <div class="flavor-grid" data-flavor-rail>
-        <article class="flavor-card strawberry reveal"><img src="/assets/strawberry-lemonade-cutout.webp" alt="Strawberry Lemonade bottle"><h3>Strawberry<br>Lemonade</h3><a href="#find" data-flavor="Strawberry Lemonade">Find this flavor <span>→</span></a></article>
-        <article class="flavor-card classic reveal"><img src="/assets/classic-lemonade-cutout.webp" alt="Classic Lemonade bottle"><h3>Classic<br>Lemonade</h3><a href="#find" data-flavor="Classic Lemonade">Find this flavor <span>→</span></a></article>
-        <article class="flavor-card half reveal"><img src="/assets/half-half-cutout.webp" alt="Half & Half bottle"><h3>Half &amp; Half</h3><a href="#find" data-flavor="Half & Half">Find this flavor <span>→</span></a></article>
-        <article class="flavor-card mango reveal"><img src="/assets/mango-lemonade-cutout.webp" alt="Mango Lemonade bottle"><h3>Mango<br>Lemonade</h3><a href="#find" data-flavor="Mango Lemonade">Find this flavor <span>→</span></a></article>
-        <article class="flavor-card pineapple reveal"><img src="/assets/pineapple-lemonade-cutout.webp" alt="Pineapple Lemonade bottle"><h3>Pineapple<br>Lemonade</h3><a href="#find" data-flavor="Pineapple Lemonade">Find this flavor <span>→</span></a></article>
-        <article class="flavor-card blueberry reveal"><img src="/assets/blueberry-lemonade-cutout.webp" alt="Blueberry Lemonade bottle"><h3>Blueberry<br>Lemonade</h3><a href="#find" data-flavor="Blueberry Lemonade">Find this flavor <span>→</span></a></article>
-        <article class="flavor-card raspberry reveal"><img src="/assets/raspberry-lemonade-cutout.webp" alt="Raspberry Lemonade bottle"><h3>Raspberry<br>Lemonade</h3><a href="#find" data-flavor="Raspberry Lemonade">Find this flavor <span>→</span></a></article>
-        <article class="flavor-card water reveal"><img src="/assets/alkaline-water-cutout.webp" alt="Alkaline Water bottle"><h3>Alkaline<br>Water</h3><a href="#find" data-flavor="Alkaline Water">Find this product <span>→</span></a></article>
+        <article class="flavor-card strawberry reveal"><img src="/assets/strawberry-lemonade-cutout.webp" alt="Strawberry Lemonade bottle"><h3>Strawberry Lemonade</h3></article>
+        <article class="flavor-card classic reveal"><img src="/assets/classic-lemonade-cutout.webp" alt="Classic Lemonade bottle"><h3>Classic Lemonade</h3></article>
+        <article class="flavor-card half reveal"><img src="/assets/half-half-cutout.webp" alt="Half & Half bottle"><h3>Half &amp; Half</h3></article>
+        <article class="flavor-card mango reveal"><img src="/assets/mango-lemonade-cutout.webp" alt="Mango Lemonade bottle"><h3>Mango Lemonade</h3></article>
+        <article class="flavor-card pineapple reveal"><img src="/assets/pineapple-lemonade-cutout.webp" alt="Pineapple Lemonade bottle"><h3>Pineapple Lemonade</h3></article>
+        <article class="flavor-card blueberry reveal"><img src="/assets/blueberry-lemonade-cutout.webp" alt="Blueberry Lemonade bottle"><h3>Blueberry Lemonade</h3></article>
+        <article class="flavor-card raspberry reveal"><img src="/assets/raspberry-lemonade-cutout.webp" alt="Raspberry Lemonade bottle"><h3>Raspberry Lemonade</h3></article>
+        <article class="flavor-card water reveal"><img src="/assets/alkaline-water-cutout.webp" alt="Alkaline Water bottle"><h3>Alkaline Water</h3></article>
       </div>
     </section>
 
@@ -105,20 +104,25 @@
         <div class="finder-search-row"><label class="search-field" for="store-search"><span>⌕</span><input id="store-search" type="search" placeholder="Search by city, store or ZIP code..." autocomplete="postal-code"><button type="button" data-clear-search aria-label="Clear search">×</button></label><button class="location-button" type="button" data-use-location><span aria-hidden="true">⌖</span> Use my location</button></div>
         <p class="location-status" data-location-status role="status">GPS stays in your browser and is requested only when you tap the button.</p>
         <div class="finder-toolbar"><p aria-live="polite"><strong data-result-count>13</strong> retailers</p><div class="town-filters" aria-label="Filter by town"><button class="active" type="button" data-town="all">All</button><button type="button" data-town="Amityville">Amityville</button><button type="button" data-town="Wyandanch">Wyandanch</button><button type="button" data-town="other">More towns</button></div></div>
-        <div class="store-grid" data-store-grid></div><button class="view-all-stores" type="button" data-view-all>View all 13 retail locations <span>→</span></button>
+        <div class="store-grid" data-store-grid></div><button class="view-all-stores" type="button" data-view-all>View all retail locations <span>→</span></button>
         <div class="no-results" data-no-results hidden><span>?</span><h3>No Monsta spotted there yet.</h3><p>Try another town or tell us where you want Monsta Squeeze stocked.</p><a href="#shortage" class="pill-button">Report this area</a></div>
       </div>
     </section>
 
     <section class="shortage" id="shortage">
-      <div class="shortage-visual reveal"><span class="halo" aria-hidden="true"></span><img class="monsta-character" src="/assets/monsta-character.png" alt="Monsta Squeeze mascot"><img class="shortage-bottle" src="/assets/strawberry-lemonade-cutout.webp" alt="Strawberry Lemonade bottle"></div>
+      <div class="shortage-visual reveal"><img class="shortage-bottle" src="/assets/strawberry-lemonade-cutout.webp" alt="Strawberry Lemonade bottle"></div>
       <div class="shortage-copy reveal"><h2>Can’t find<br>your flavor?</h2><strong>#FreeSqueeze</strong></div>
       <div class="shortage-action reveal"><p>Let us know where Monsta Squeeze is missing, and we’ll work to get it on the shelves near you.</p><button class="pill-button" type="button" data-open-report>Report a shortage <span aria-hidden="true">→</span></button></div>
     </section>
 
     <section class="retailer-cta section" id="retailers">
       <div class="retailer-copy reveal"><p class="brush-note">For retailers</p><h2>Stock the<br><em>Monsta</em></h2><p>Wholesale opportunities for retail stores, restaurants, gas stations, convenience stores and more.</p><div class="retailer-actions"><a class="pill-button" href="mailto:hello@monstasqueeze.com?subject=Retailer%20interest">Become a retailer <span>→</span></a><a class="pill-button portal-button" href="https://restock.monstasqueeze.com" target="_blank" rel="noopener" aria-label="Restock Monsta Squeeze">Restock <span>↗</span></a></div></div>
-      <div class="cooler-wrap reveal" aria-label="Monsta Squeeze bottles stocked in a branded cooler"><div class="cooler-header"><img src="/assets/monsta-squeeze-logo.png" alt=""><span>Bold flavor.<br>Sells itself.</span></div><div class="cooler"><div class="cooler-row"><img src="/assets/classic-lemonade-cutout.webp" alt=""><img src="/assets/strawberry-lemonade-cutout.webp" alt=""><img src="/assets/half-half-cutout.webp" alt=""><img src="/assets/mango-lemonade-cutout.webp" alt=""><img src="/assets/blueberry-lemonade-cutout.webp" alt=""></div><div class="cooler-row"><img src="/assets/mango-lemonade-cutout.webp" alt=""><img src="/assets/classic-lemonade-cutout.webp" alt=""><img src="/assets/raspberry-lemonade-cutout.webp" alt=""><img src="/assets/pineapple-lemonade-cutout.webp" alt=""><img src="/assets/strawberry-lemonade-cutout.webp" alt=""></div></div></div>
+      <div class="fridge-scene reveal" role="img" aria-label="Monsta Squeeze bottles stocked in a branded retail refrigerator">
+        <img class="fridge-shell" src="/assets/monsta-retail-fridge-v1.png" alt="">
+        <img class="fridge-brand" src="/assets/monsta-squeeze-logo.png" alt="">
+        <div class="fridge-shelf fridge-shelf-top" aria-hidden="true"><img src="/assets/classic-lemonade-cutout.webp" alt=""><img src="/assets/strawberry-lemonade-cutout.webp" alt=""><img src="/assets/half-half-cutout.webp" alt=""><img src="/assets/mango-lemonade-cutout.webp" alt=""></div>
+        <div class="fridge-shelf fridge-shelf-bottom" aria-hidden="true"><img src="/assets/blueberry-lemonade-cutout.webp" alt=""><img src="/assets/raspberry-lemonade-cutout.webp" alt=""><img src="/assets/pineapple-lemonade-cutout.webp" alt=""><img src="/assets/alkaline-water-cutout.webp" alt=""></div>
+      </div>
     </section>
   </main>
 
@@ -126,7 +130,7 @@
     <img src="/assets/monsta-squeeze-logo.png" alt="Monsta Squeeze" class="footer-logo">
     <div class="footer-links"><div><strong>Navigation</strong><a href="#top">Home</a><a href="#flavors">Flavors</a><a href="#game">Play game</a><a href="#find">Find a store</a><a href="#shortage">Report shortage</a><a href="#retailers">For retailers</a></div><div><strong>Connect</strong><span>◎ &nbsp; f &nbsp; ♪</span><a href="mailto:hello@monstasqueeze.com">Contact</a><a href="https://play.monstasqueeze.com" target="_blank" rel="noopener">Play Squeeze Rush</a></div></div>
     <p class="footer-tagline">Bold flavor.<br>Fresh squeezed.<br><em>Monsta approved.</em></p>
-    <div class="footer-legal"><span>Privacy policy</span><span>Terms of service</span><span>© <span data-year></span> Monsta Squeeze.<br>All rights reserved.</span></div>
+    <div class="footer-legal"><button type="button" data-open-legal="privacy">Privacy policy</button><button type="button" data-open-legal="terms">Terms of service</button><span>© <span data-year></span> Monsta Squeeze.<br>All rights reserved.</span></div>
   </footer>
 
   <dialog class="report-dialog" data-report-dialog aria-labelledby="report-title">
@@ -139,6 +143,11 @@
       <label class="wide"><span>What did you see?</span><textarea name="details" rows="4" placeholder="Example: The cooler was empty, or the flavor I wanted wasn't available."></textarea></label>
       <button class="pill-button wide" type="submit">Send shortage report <span aria-hidden="true">→</span></button><p class="form-note wide">Your report helps the Monsta Squeeze team verify shortages and prioritize restocks. #FreeSqueeze eligibility is reviewed separately.</p>
     </form>
+  </dialog>
+
+  <dialog class="legal-dialog" data-legal-dialog aria-labelledby="legal-title">
+    <button class="dialog-close" type="button" data-close-legal aria-label="Close legal information">×</button>
+    <article data-legal-content></article>
   </dialog>
 </body>
 </html>

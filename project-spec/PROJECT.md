@@ -43,6 +43,10 @@ Create the official Monsta Squeeze brand site as a retail-discovery experience. 
 - D-009: Place a direct “Restock Monsta Squeeze” portal action beside “Become a retailer,” linking to `https://restock.monstasqueeze.com`. Source: current user request. Status: approved.
 - D-010: Keep the host-injected Netlify hosting credit present, but visually recess its runtime badge behind the page artwork instead of presenting it as a front-facing promotional element. Source: current user request. Status: approved.
 - D-011: Use a canonical HTTPS URL, favicon set, Organization JSON-LD, and a branded 1200x630 JPEG preview for link unfurls in text messages and social shares. Source: current user request. Status: approved.
+- D-012: Present flavor bottles as clean, background-free product cutouts with restrained labels and no per-flavor locator buttons. Source: current user request. Status: approved.
+- D-013: Derive every visible retailer total, including the hero stamp, from the canonical `stores.js` array. Source: current user request. Status: approved.
+- D-014: Replace the constructed cooler with generated refrigerator photography while preserving exact packaging by layering the approved bottle cutouts and official logo in the page. Source: current user request. Status: approved.
+- D-015: Provide keyboard-accessible Privacy Policy and Terms of Service dialogs with fact-grounded website notices. Source: current user request. Status: approved; legal review remains required before production approval.
 
 ## Asset manifest
 
@@ -57,6 +61,7 @@ Create the official Monsta Squeeze brand site as a retail-discovery experience. 
 - A-109: Hero fruit splash V2. Source: generated transparent strawberry, lemon, tea-leaf, ice, and juice foreground; no blueberries, bottles, logos, or text.
 - A-110: Monsta Squeeze share preview JPEG. Source: deterministic composition of approved hero atmosphere, logo, and three identity-locked bottle cutouts; 1200x630 Open Graph/Twitter asset.
 - A-111: Monsta Squeeze favicon set. Source: approved logo rendered to ICO, PNG, and Apple Touch Icon sizes.
+- A-112: Empty Monsta retail refrigerator shell. Source: generated product mockup; official logo and identity-locked bottle assets remain separate overlays to preserve fidelity.
 
 ## Assumptions
 
