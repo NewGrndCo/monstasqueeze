@@ -61,7 +61,7 @@ test('approved campaign redesign assets are present', () => {
     'squeeze-rush-motion.webp',
     'hero-atmosphere-v2.webp',
     'hero-fruit-splash-v2.webp',
-    'monsta-retail-fridge-v1.png'
+    'monsta-retail-fridge-v2.png'
   ];
   for (const asset of campaignAssets) assert.equal(existsSync(resolve('public/assets', asset)), true, `${asset} is missing`);
 });
@@ -114,12 +114,17 @@ test('product and retailer presentation uses the approved clean composition', ()
 
   assert.doesNotMatch(flavorSection, /Find this flavor|Find this product/);
   assert.doesNotMatch(shortageSection, /monsta-character/);
-  assert.match(retailerSection, /monsta-retail-fridge-v1\.png/);
-  assert.match(retailerSection, /class="fridge-brand"/);
-  assert.equal((retailerSection.match(/-cutout\.webp/g) ?? []).length, 8);
+  assert.match(retailerSection, /monsta-retail-fridge-v2\.png/);
+  assert.doesNotMatch(retailerSection, /fridge-brand|fridge-shelf|-cutout\.webp/);
+  assert.match(retailerSection, /mailto:adminMonsta@gmail\.com\?subject=Retailer%20interest/);
   assert.match(html, /data-retailer-badge/);
   assert.match(app, /data-retailer-count/);
   assert.match(app, /stores\.length/);
+});
+
+test('mobile flavor rail is constrained to horizontal touch panning', () => {
+  const css = readFileSync(resolve('styles.css'), 'utf8');
+  assert.match(css, /\.flavor-grid\{[^}]*overflow-y:hidden;[^}]*overscroll-behavior-y:none;[^}]*touch-action:pan-x/);
 });
 
 test('privacy and terms controls open accessible native dialogs', () => {

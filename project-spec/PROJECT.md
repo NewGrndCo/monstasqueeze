@@ -47,6 +47,8 @@ Create the official Monsta Squeeze brand site as a retail-discovery experience. 
 - D-013: Derive every visible retailer total, including the hero stamp, from the canonical `stores.js` array. Source: current user request. Status: approved.
 - D-014: Replace the constructed cooler with generated refrigerator photography while preserving exact packaging by layering the approved bottle cutouts and official logo in the page. Source: current user request. Status: approved.
 - D-015: Provide keyboard-accessible Privacy Policy and Terms of Service dialogs with fact-grounded website notices. Source: current user request. Status: approved; legal review remains required before production approval.
+- D-016: Replace the layered refrigerator composition with one finished image containing integrated Monsta Squeeze signage and densely stocked bottle rows; remove all floating product and logo overlays. Source: current user request. Status: approved.
+- D-017: Constrain the mobile flavor rail to horizontal touch panning only and route the retailer-interest action to `adminMonsta@gmail.com`. Source: current user request. Status: approved.
 
 ## Asset manifest
 
@@ -61,7 +63,7 @@ Create the official Monsta Squeeze brand site as a retail-discovery experience. 
 - A-109: Hero fruit splash V2. Source: generated transparent strawberry, lemon, tea-leaf, ice, and juice foreground; no blueberries, bottles, logos, or text.
 - A-110: Monsta Squeeze share preview JPEG. Source: deterministic composition of approved hero atmosphere, logo, and three identity-locked bottle cutouts; 1200x630 Open Graph/Twitter asset.
 - A-111: Monsta Squeeze favicon set. Source: approved logo rendered to ICO, PNG, and Apple Touch Icon sizes.
-- A-112: Empty Monsta retail refrigerator shell. Source: generated product mockup; official logo and identity-locked bottle assets remain separate overlays to preserve fidelity.
+- A-112: Fully stocked Monsta retail refrigerator V2. Source: generated product mockup using official logo and product photography as identity references; one flattened website image with integrated signage and stocked shelves.
 
 ## Assumptions
 
